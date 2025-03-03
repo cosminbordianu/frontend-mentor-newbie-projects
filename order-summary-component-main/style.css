@@ -1,0 +1,194 @@
+:root {
+  --Pale-blue: hsl(225, 100%, 94%);
+  --Bright-blue: hsl(245, 75%, 52%);
+  --Shadow-blue: hsl(245, 70%, 80%);
+  --Very-pale-blue: hsl(225, 100%, 98%);
+  --Desaturated-blue: hsl(224, 23%, 55%);
+  --Dark-blue: hsl(223, 47%, 23%);
+
+  --ff-primary: 'Red Hat Display';
+
+  --fw-normal: 500;
+  --fw-bold: 700;
+  --fw-extra-bold: 900;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  color: var(--Dark-blue);
+}
+
+/* general */
+body {
+    background-image: url("./images/pattern-background-mobile.svg");
+    background-color: var(--Pale-blue);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-normal);
+    color: var(--Desaturated-blue);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+}
+
+@media (min-width: 1000px) {
+    body {
+      background-image: url("./images/pattern-background-desktop.svg");
+    }
+  }
+
+.flex-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* card layout */
+.order {
+    background-color: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0px 20px 40px -10px var(--Shadow-blue);
+    max-width: 25em;
+}
+
+.order-summary {
+    --general-padding: 2rem;
+    text-align: center;
+    padding: var(--general-padding);
+    display: grid;
+    gap: 1rem;
+}
+
+h1 {
+    font-weight: var(--fw-extra-bold);
+    font-size: 1.5rem;
+}
+
+.order-pricing {
+    background-color: var(--Very-pale-blue);
+    padding: 1rem;
+    padding-left: 4.5rem;
+    border-radius: 0.5rem;
+}
+
+.order-pricing h2 {
+    font-weight: var(--fw-extra-bold);
+    font-size: 1rem;
+    position: relative;
+}
+
+.order-pricing h2::before {
+    content: "";
+    background: url("./images/icon-music.svg");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    right: 100px;
+    position: absolute;
+}
+
+.order-pricing p {
+    font-size: 0.9rem;
+}
+
+.change-link {
+    color: var(--Bright-blue);
+    transition: opacity 0.15s;
+}
+
+.change-link:hover {
+    opacity: 0.7;
+}
+
+
+.button, .cancel-order {
+    border: none;
+    padding: 1rem;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+}
+
+.button {
+    background-color: var(--Bright-blue);
+    color: var(--Very-pale-blue);
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 20px var(--Shadow-blue);
+    transition: opacity 0.15s;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.cancel-order {
+    background-color: white;
+    color: inherit;
+    width: max-content;
+    margin: auto;
+    transition: color 0.15s;
+}
+
+.cancel-order:hover {
+    color: var(--Dark-blue);
+}

@@ -1,0 +1,163 @@
+:root {
+    --fs-400: 0.9375rem;
+    --fs-600: 2.2rem;
+
+    --ff-400: 'Lexend Deca', sans-serif;
+    --ff-700: 'Big Shoulders Display', sans-serif;
+
+    --clr-orange: hsl(31, 77%, 52%);
+    --clr-cyan-600: hsl(184, 100%, 22%);
+    --clr-cyan-900: hsl(179, 100%, 13%);
+
+    --clr-neutral-gray: hsl(0, 0%, 95%);
+    --clr-neutral-white: hsla(0, 0%, 100%, 0.75);
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Default styling */
+body {
+    font-family: var(--ff-400);
+    font-size: var(--fs-400);
+    background-color: var(--clr-neutral-gray);
+    padding-inline: 1rem;
+}
+
+main {
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  place-items: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px ,300px));
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+
+.card {
+  padding: 3rem;
+}
+
+.card-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.card p{
+  color: var(--clr-neutral-white);
+}
+
+.card h2 {
+  font-family: var(--ff-700);
+  color: var(--clr-neutral-gray);
+  font-size: var(--fs-600);
+  text-transform: uppercase;
+}
+
+.wrapper > :nth-child(1), .wrapper > :nth-child(1) .learn-more{
+  background-color: var(--clr-orange);
+  color: var(--clr-orange);
+}
+.wrapper > :nth-child(2),  .wrapper > :nth-child(2) .learn-more {
+  background-color: var(--clr-cyan-600);
+  color: var(--clr-cyan-600);
+}
+.wrapper > :nth-child(3),  .wrapper > :nth-child(3) .learn-more {
+  background-color: var(--clr-cyan-900);
+  color: var(--clr-cyan-900);
+}
+
+.wrapper .card .learn-more {
+  background-color: var(--clr-neutral-gray);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  margin-top: 5rem;
+  cursor: pointer;
+  border: 3px solid var(--clr-neutral-gray);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.wrapper .card .learn-more:hover {
+  background-color: transparent;
+  color: var(--clr-neutral-gray);
+}
+
+@media (max-width: 770px) {
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .wrapper .card .learn-more {
+    margin-top: 1.7rem;
+  }
+
+  body {
+    margin-block: 2rem;
+  }
+}
