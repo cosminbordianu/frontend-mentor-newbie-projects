@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- FAQs -->
+    <picture>
+      <!-- This image is displayed when the screen width is above 750px -->
+      <source
+        media="(min-width: 750px)"
+        srcset="./assets/images/background-pattern-desktop.svg"
+      />
+
+      <!-- This image is displayed when the screen width is below 750px (default) -->
+      <img src="./assets/images/background-pattern-mobile.svg" alt="" />
+    </picture>
+    <main>
+      <div class="faq-container">
+        <div class="title">
+          <img src="./assets/images/icon-star.svg" alt="" />
+          <h1>FAQs</h1>
+        </div>
+        <div class="faq-list"></div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
