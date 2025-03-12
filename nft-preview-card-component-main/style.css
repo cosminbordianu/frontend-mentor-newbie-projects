@@ -1,0 +1,222 @@
+:root {
+    --clr-blue: hsl(215, 51%, 70%);
+    --clr-cyan: hsl(178, 100%, 50%);
+    --clr-dark-blue-700: hsl(217, 54%, 11%);
+    --clr-dark-blue-600: hsl(216, 50%, 16%);
+    --clr-dark-blue-500: hsl(215, 32%, 27%);
+    --clr-white: hsl(0, 0%, 100%);
+
+    --fw-normal: 400;
+    --fw-light: 300;
+    --fw-bold: 600;
+
+    --ff-primary: 'Outfit', 'Arial', 'sans-serif';
+    --fz: 18px;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.4;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* General styling */
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--fz);
+    background-color: var(--clr-dark-blue-700);
+    font-weight: var(--fw-light);
+    color: var(--clr-blue);
+    display: grid;
+    place-items: center;
+    padding: 5rem 1rem;
+    min-height: 100vh;
+}
+
+.white {
+    color: var(--clr-white);
+}
+
+.cyan {
+    color: var(--clr-cyan);
+}
+
+hr {
+    border: 1px solid var(--clr-dark-blue-500);
+}
+
+/* Card styling */
+.card {
+    background-color: var(--clr-dark-blue-600);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    max-width: 19em;
+}
+
+.card-image {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-image::after {
+    content: "";
+    background-color: var(--clr-cyan);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+/* View icon */
+.card-image::before {
+    content: "";
+    position: absolute;
+    background-image: url("./images/icon-view.svg");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10;
+}
+
+/* Hover effect */
+.card-image:hover::before {
+    opacity: 1;
+}
+
+
+.card-image:hover::after {
+    opacity: 0.7;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    width: max-content;
+    transition: color 0.15s;
+    cursor: pointer;
+}
+
+.card > *:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--fw-normal);
+}
+
+.card-details > * {
+    padding-left: 1.4rem;
+}
+
+.card-details > :first-child, .card-details > :last-child {
+    position: relative;
+}
+
+.card-details > :first-child::before, .card-details > :last-child::before, .card-author::before {
+    content: "";
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+}
+
+.card-details > :first-child::before {
+    background-image: url("./images/icon-ethereum.svg");
+}
+
+.card-details > :last-child::before {
+    background-image: url("./images/icon-clock.svg");
+}
+
+.card-author {
+    padding-left: 3rem;
+    position: relative;
+}
+
+.card-author::before {
+    background-image: url("./images/image-avatar.png");
+    background-size: cover;
+    border: 2px solid var(--clr-white);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.card-author span {
+    transition: color 0.15s;
+    cursor: pointer;
+}
+
+.card-title:is(:hover), .card-author span:is(:hover) {
+    color: var(--clr-cyan);
+}
