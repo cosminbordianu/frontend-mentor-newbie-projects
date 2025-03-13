@@ -1,0 +1,147 @@
+:root {
+  --clr-dark-cyan: hsl(185, 75%, 39%);
+  --clr-dark-blue: hsl(229, 23%, 23%);
+  --clr-grayish-blue: hsl(227, 10%, 46%);
+  --clr-dark-gray: hsl(0, 0%, 59%);
+
+  --fz-header: 1.125rem;
+
+  --ff-primary: "Kumbh Sans", "Arial", "sans-serif";
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --bg-set: 28rem;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.4;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-normal);
+  color: var(--clr-dark-gray);
+  background-color: var(--clr-dark-cyan);
+  background-image: url("../images/bg-pattern-top.svg"),
+    url("../images/bg-pattern-bottom.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: calc(50% - var(--bg-set)) calc(50% - var(--bg-set)),
+    calc(50% + var(--bg-set)) calc(50% + var(--bg-set));
+  display: grid;
+  place-items: center;
+  padding: 0 1.5rem;
+  line-height: 1.5;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  max-width: calc(375px - 3rem);
+}
+
+h1,
+h2 {
+  font-size: var(--fz-header);
+  color: var(--clr-dark-blue);
+}
+
+.avatar-section {
+  display: grid;
+  grid-template-rows: auto 48px;
+}
+
+.avatar-background {
+  position: relative;
+}
+
+.avatar-background > *:last-child {
+  border-radius: 50%;
+  border: 5px solid white;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card > * {
+  margin-bottom: 1.4rem;
+}
+
+.socials-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social-p {
+    font-size: 0.6rem;
+    letter-spacing: 0.1rem;
+    color: var(--clr-dark-gray);
+}
+
+h1 span {
+    font-weight: var(--fw-normal);
+    color: var(--clr-dark-gray);
+}
+
+hr {
+    border: 1px solid hsl(0, 0%, 90%);
+}
