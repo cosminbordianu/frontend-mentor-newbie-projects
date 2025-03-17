@@ -1,0 +1,241 @@
+:root {
+  --clr-magenta-800: hsl(300, 43%, 22%);
+  --clr-magenta-600: hsl(303, 10%, 53%);
+  --clr-magenta-400: hsl(300, 24%, 96%);
+  --clr-soft-pink: hsl(333, 80%, 67%);
+  --clr-white: hsl(0, 0%, 100%);
+  --ff-primary: "League Spartan", "Arial", "sans-serif";
+  --fz-default: 0.938rem;
+  --fw-light: 400;
+  --fw-normal: 500;
+  --fw-bold: 700;
+  --gap-default: 1rem;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.3;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* text-wrap: balance; */
+  font-weight: var(--fw-bold);
+}
+
+/* General styling */
+body {
+  font-family: var(--ff-primary);
+  background-color: var(--clr-white);
+  color: var(--clr-magenta-600);
+  font-weight: var(--fw-normal);
+  font-size: var(--fz-default);
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  display: grid;
+  place-items: center;
+  background-image: url("./images/bg-pattern-top-mobile.svg");
+  background-position: top left;
+  background-repeat: no-repeat, no-repeat;
+}
+h1 {
+  color: var(--clr-magenta-800);
+  font-size: 2.5rem;
+  line-height: 0.8;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.09rem;
+}
+
+/* Hero section styling */
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  letter-spacing: -0.04rem;
+}
+
+.hero-rating {
+  gap: var(--gap-default);
+}
+
+.reviews-section,
+.rating-card,
+.hero-rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-card {
+  background-color: var(--clr-magenta-400);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.rating-card h2 {
+  font-size: 1rem;
+  color: var(--clr-magenta-800);
+}
+
+.stars {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.reviews-section {
+  gap: var(--gap-default);
+}
+
+.review-card {
+  background-color: var(--clr-magenta-800);
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 0.5rem;
+
+  font-weight: var(--fw-light);
+}
+
+.review-card h2 {
+  font-size: var(--fz-default);
+}
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-author img {
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.card-author p {
+  color: var(--clr-soft-pink);
+}
+
+@media (min-width: 900px) {
+  body {
+    background-image: url("./images/bg-pattern-top-desktop.svg"),
+      url("./images/bg-pattern-bottom-desktop.svg");
+  background-repeat: no-repeat, no-repeat;
+    background-position: calc(50% - 50%) calc(50% - 17rem),
+      calc(50% + 20rem) calc(50% + 8rem);
+  }
+
+  main {
+    max-width: 65rem;
+  }
+
+  .hero-section {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .hero-section > *:nth-child(1) {
+    width: 22rem;
+  }
+
+  .hero-rating > div {
+    padding-right: 3rem;
+    padding-left: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .hero-rating > *:nth-child(1) {
+    position: relative;
+    left: -4rem;
+  }
+  .hero-rating > *:nth-child(2) {
+    position: relative;
+    left: -2rem;
+  }
+
+  .rating-card {
+    flex-direction: row;
+  }
+
+  .reviews-section {
+    flex-direction: row;
+  }
+
+  .reviews-section > *:nth-child(2) {
+    position: relative;
+    top: 1rem;
+  }
+  .reviews-section > *:nth-child(3) {
+    position: relative;
+    top: 2rem;
+  }
+}
