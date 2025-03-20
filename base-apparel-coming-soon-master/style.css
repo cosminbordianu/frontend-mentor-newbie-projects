@@ -1,0 +1,262 @@
+:root {
+
+    --clr-red-300: hsl(0, 36%, 70%);
+    --clr-red-500: hsl(0, 93%, 68%);
+    --clr-red-700: hsl(0, 6%, 24%);
+
+    --linear-1-1: hsl(0, 0%, 100%);
+    --linear-1-2: hsl(0, 100%, 98%);
+    --linear-2-1: hsl(0, 80%, 86%);
+    --linear-2-2: hsl(0, 74%, 74%);
+
+    --ff-primary: 'Josefin Sans', 'Arial', 'sans-serif';
+
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-bold: 600;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.4;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* text-wrap: balance; */
+  color: var(--clr-red-700);
+  font-weight: var(--fw-bold);
+}
+
+/* *************** */
+/* General Styling */
+/* *************** */
+
+body {
+    font-family: var(--ff-primary);
+    color: var(--clr-red-300);
+    font-weight: var(--fw-normal);
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+}
+
+h1 span{
+  color: var(--clr-red-300);
+  font-weight: var(--fw-light);
+}
+
+/* ****** */
+/* Layout */
+/* ****** */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, max-content);
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
+}
+
+.col1, .col3 {
+  width: 450px;
+  place-self: center;
+}
+
+.col1 {
+  margin-top: 3rem;
+}
+
+/* Background SVG */
+.col1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 496px;
+  height: 100%;
+  background: url("./images/bg-pattern-desktop.svg") no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  z-index: -1;
+}
+
+.col3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 2rem;
+}
+.col3 h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 1rem;
+  line-height: 1.1;
+}
+
+.col2 {
+  grid-row: span 2;
+}
+
+.col2 img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+input {
+  outline: none;
+  border: 1px solid var(--clr-red-300);
+  width: 100%;
+  padding: 0.8rem 2rem;
+  border-radius: 5rem;
+  padding-right: 8rem;
+}
+
+input::placeholder {
+  color: var(--clr-red-300);
+}
+
+form {
+  position: relative;
+}
+
+button {
+  position: absolute;
+  background: url("./images/icon-arrow.svg"), linear-gradient(135deg, var(--linear-2-1), var(--linear-2-2));
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 90px;
+  height: 50px;
+  border-radius: 10rem;
+  right: 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.input-error {
+  border: 1px solid var(--clr-red-500);
+}
+
+.error::before {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: -2.8rem;
+  right: 6rem;
+  width: 20px;
+  height: 20px;
+  background: url("./images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.error.active::before {
+  opacity: 1;
+}
+
+.error {
+  position: relative;
+  text-align: left;
+  margin-top: .6rem;
+  padding-left: 2rem;
+  color: var(--clr-red-500);
+  height: 1rem;
+}
+
+@media (min-width: 1600px){
+  .col3 h1{
+    font-size: 4.5rem;
+  }
+  .col3 p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+  }
+  .col1, .col3 {
+    padding: 2rem;
+  }
+  .col1 {
+    margin: 0;
+    width: 100%;
+  }
+  .col1::before {
+    display: none;
+  }
+   .col3 {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+   }
+   .col3 h1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+   }
+   button {
+    width: 70px;
+   }
+}
