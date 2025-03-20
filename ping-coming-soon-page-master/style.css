@@ -1,0 +1,223 @@
+:root {
+    --clr-blue-500: hsl(223, 87%, 63%);
+    --clr-blue-300: hsl(223, 100%, 88%);
+    --clr-red: hsl(354, 100%, 66%);
+    --clr-blue-900: hsl(209, 33%, 12%);
+    --clr-gray: hsl(0, 0%, 59%);
+
+    --fz-normal: 1.25rem;
+
+    --ff-pimary: 'Libre Franklin';
+
+    --fw-light: 300;
+    --fw-normal: 600;
+    --fw-bold: 700;
+
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.4;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* text-wrap: balance; */
+  font-weight: var(--fw-bold);
+}
+
+/* *************** */
+/* General styling */
+/* *************** */
+
+
+body {
+    font-size: var(--fz-normal);
+    font-family: var(--ff-pimary);
+    color: var(--clr-blue-900);
+    font-weight: var(--fw-normal);
+    background-color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 2rem;
+}
+
+/* ****** */
+/* Layout */
+/* ****** */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 2.5rem;
+}
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.6rem;
+}
+h1 span {
+    font-weight: var(--fw-light);
+    color: var(--clr-gray);
+}
+
+/* Form styling */
+.label-email {
+    display: block;
+    margin-bottom: 2.5rem;
+    font-weight: var(--fw-light);
+}
+form div {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    margin-bottom: 6rem;
+}
+form input {
+    /* outline: none; */
+    border: 1px solid lightgray;
+    padding: 1rem 2.5rem;
+    border-radius: 2rem;
+    font-weight: var(--fw-light);
+    width: 22em;
+}
+form input::placeholder {
+    color: lightgray;
+    font-size: 1.1rem;
+}
+.submit-button {
+    color: white;
+    padding: 1rem 4rem;
+    background-color: var(--clr-blue-500);
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    box-shadow: 4px 4px 20px lightgray;
+    transition: all 0.15s ease;
+}
+.submit-button:hover {
+    opacity: 0.8;
+}
+.error {
+    font-weight: var(--fw-light);
+    font-style: italic;
+    color: var(--clr-red);
+    font-size: 1rem;
+    position: absolute;
+    bottom: -2rem;
+    left: 2.5rem;
+}
+.error-input {
+    border-color: var(--clr-red);
+    outline: none;
+}
+.statistics-image {
+    width: 34em;
+}
+
+/* Fotter styling */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--clr-gray);
+    font-weight: var(--fw-light);
+}
+.socials {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+.socials svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--clr-blue-500);
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.socials svg:hover {
+    background-color: var(--clr-blue-500);
+    border-color: transparent;
+    fill: white;
+}
+
+@media (max-width: 780px)
+{
+    form div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    .error {
+        position:relative;
+        top: -0rem;
+        left: 0;
+        margin-bottom: 1rem;
+    }
+}
