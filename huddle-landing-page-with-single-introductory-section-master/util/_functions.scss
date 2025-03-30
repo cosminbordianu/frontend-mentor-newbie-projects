@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function rem($size) {
+  @if unitless($size) {
+    @return math.div($size, 16) + rem;
+  } @else {
+    @error 'Can\'t write the unit inside rem(), only the value';
+  }
+}
+
+@function em($size) {
+  @if unitless($size) {
+    @return math.div($size, 16) + em;
+  } @else {
+    @error 'Can\'t write the unit inside em(), only the value';
+  }
+}

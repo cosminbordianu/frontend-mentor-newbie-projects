@@ -1,0 +1,59 @@
+@use "../util/functions" as f;
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+body {
+  padding: f.rem(70) f.rem(40);
+  background-color: var(--clr-violet);
+  color: white;
+  font-family: var(--ff-body);
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.5;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("../images/bg-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  @media (min-width: f.rem(1024)) {
+    padding: f.rem(60) f.rem(80) f.rem(40) f.rem(80);
+    &::before {
+      background-image: url("../images/bg-desktop.svg");
+    }
+  }
+}
+
+h1 {
+  font-family: var(--ff-headings);
+  font-size: f.rem(30);
+  font-weight: var(--fw-bold);
+
+  @media (min-width: f.rem(1024)) {
+    font-size: f.rem(38);
+  }
+}
