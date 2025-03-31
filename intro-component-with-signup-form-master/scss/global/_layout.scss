@@ -1,0 +1,142 @@
+@use "../util/functions" as f;
+@use "./variables" as v;
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(32);
+  text-align: center;
+  max-width: f.rem(550);
+  width: 100%;
+
+  @include f.breakpoint-up(medium) {
+    max-width: f.rem(1100);
+    text-align: left;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+section.data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  br {
+    @include f.breakpoint-up(medium) {
+      display: none;
+    }
+  }
+
+  h2 {
+    background-color: v.$clr-blue-500;
+    padding: f.rem(16);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.15);
+
+    @include f.breakpoint-up(medium) {
+        text-align: center;
+      }
+  }
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 0px rgba(0, 0, 0, 0.15);
+
+  input {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgb(236, 236, 236);
+    outline: none;
+    color: v.$clr-blue-700;
+    font-weight: v.$fw-bold;
+    width: 100%;
+
+    &::placeholder {
+      color: v.$clr-blue-700;
+      font-weight: v.$fw-bold;
+    }
+
+    &:focus {
+      border-color: v.$clr-blue-300;
+    }
+  }
+
+  button {
+    padding: 1.2rem;
+    background-color: v.$clr-green;
+    text-transform: uppercase;
+    color: white;
+    font-weight: v.$fw-bold;
+    border: none;
+    border-radius: 0.3rem;
+    letter-spacing: 0.1rem;
+    box-shadow: 0 4px 0 darken(v.$clr-green, 10%);
+    cursor: pointer;
+  }
+
+  p {
+    color: lightgray;
+    margin: 0;
+  }
+
+  .TaS {
+    font-size: f.rem(12);
+    span {
+        color: v.$clr-red;
+        font-weight: v.$fw-xbold;
+    }
+  }
+
+  @include f.breakpoint-up(medium) {
+    padding: 2rem;
+  }
+}
+
+// Error Messages
+.error {
+    text-align: right;
+    font-style: italic;
+    display: none;
+}
+
+#form.error-form {
+    div.error-div {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url('../images/icon-error.svg');
+            background-repeat: no-repeat;
+            width: 50px;
+            height: 50px;
+            bottom: 0.2rem;
+            right: -0.5rem;
+        }
+        input {
+          border-color: v.$clr-red;
+          color: v.$clr-red;
+          position: relative;
+          padding-right: 4rem;
+  
+          &::placeholder {
+              opacity: 0;
+          }
+      }
+
+      .error {
+        color: v.$clr-red;;
+        font-size: f.rem(11);
+        display: block;
+    }
+
+    }
+    
+}

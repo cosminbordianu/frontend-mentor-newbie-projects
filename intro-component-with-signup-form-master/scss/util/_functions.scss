@@ -1,0 +1,45 @@
+@use 'sass:math';
+
+@function rem($value) {
+    @if is-unitless($value) {
+        @return math.div($value, 16) + rem;
+    }
+    @else {
+        @error 'Can\'t use units inside rem(), only value in px';
+    }
+}
+
+@function em($value) {
+    @if is-unitless($value) {
+        @return math.div($value, 16) + em;
+    }
+    @else {
+        @error 'Can\'t use units inside em(), only value in px';
+    }
+}
+
+// 700px, 900px, 1440px
+$breakpoints-up: (
+    'small': em(650),
+    'medium': em(1000),
+    'large': em(1440)
+);
+
+// 699.98px, 899.98px, 1439.98px
+$breakpoints-down: (
+    'small': em(649.98),
+    'medium': em(999.98),
+    'large': em(1439.98) 
+);
+
+@mixin breakpoint-up($size) {
+    @media(min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media(min-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}

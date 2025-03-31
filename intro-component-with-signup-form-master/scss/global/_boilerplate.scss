@@ -1,0 +1,48 @@
+@use '../util/functions' as f;
+@use './variables' as v;
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: f.rem(64) f.rem(32) 1rem f.rem(32);
+    background-color: v.$clr-red;
+    background-image: url('../images/bg-intro-mobile.png');
+    font-family: v.$ff-primary;
+    font-weight: v.$fw-light;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    @include f.breakpoint-up(small) {
+        background-image: url('../images/bg-intro-desktop.png');
+        padding: 0 f.rem(32);
+    }
+}
+
+h1 {
+    font-weight: v.$fw-xbold;
+    font-size: f.rem(28);
+
+    @include f.breakpoint-up(medium) {
+        font-size: f.rem(50);
+        line-height: 1;
+    }
+}
+
+h2 {
+    font-weight: v.$fw-bold;
+    font-size: f.rem(16);
+
+    span {
+        font-weight: v.$fw-light;
+    }
+}
