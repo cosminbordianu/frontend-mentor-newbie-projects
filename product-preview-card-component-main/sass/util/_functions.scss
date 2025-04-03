@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+@function rem($size) {
+    @if is-unitless($size) {
+       @return math.div($size, 16) + rem;
+    }
+    @else {
+        @error 'Can\'t use units inside rem(), only the value';
+    }
+}
+
+@function eem($size) {
+    @if is-unitless($size) {
+       @return math.div($size, 16) + em;
+    }
+    @else {
+        @error 'Can\'t use units inside em(), only the value';
+    }
+}
